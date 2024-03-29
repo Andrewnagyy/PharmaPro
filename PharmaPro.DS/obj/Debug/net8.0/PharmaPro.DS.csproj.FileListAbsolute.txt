@@ -1,0 +1,17 @@
+D:\GraduationProject\PharmaPro\PharmaPro.DS\bin\Debug\net8.0\PharmaPro.DS.deps.json
+D:\GraduationProject\PharmaPro\PharmaPro.DS\bin\Debug\net8.0\PharmaPro.DS.runtimeconfig.json
+D:\GraduationProject\PharmaPro\PharmaPro.DS\bin\Debug\net8.0\PharmaPro.DS.dll
+D:\GraduationProject\PharmaPro\PharmaPro.DS\bin\Debug\net8.0\PharmaPro.DS.pdb
+D:\GraduationProject\PharmaPro\PharmaPro.DS\obj\Debug\net8.0\PharmaPro.DS.csproj.AssemblyReference.cache
+D:\GraduationProject\PharmaPro\PharmaPro.DS\obj\Debug\net8.0\PharmaPro.DS.GeneratedMSBuildEditorConfig.editorconfig
+D:\GraduationProject\PharmaPro\PharmaPro.DS\obj\Debug\net8.0\PharmaPro.DS.AssemblyInfoInputs.cache
+D:\GraduationProject\PharmaPro\PharmaPro.DS\obj\Debug\net8.0\PharmaPro.DS.AssemblyInfo.cs
+D:\GraduationProject\PharmaPro\PharmaPro.DS\obj\Debug\net8.0\PharmaPro.DS.csproj.CoreCompileInputs.cache
+D:\GraduationProject\PharmaPro\PharmaPro.DS\obj\Debug\net8.0\PharmaPro.DS.dll
+D:\GraduationProject\PharmaPro\PharmaPro.DS\obj\Debug\net8.0\refint\PharmaPro.DS.dll
+D:\GraduationProject\PharmaPro\PharmaPro.DS\obj\Debug\net8.0\PharmaPro.DS.pdb
+D:\GraduationProject\PharmaPro\PharmaPro.DS\obj\Debug\net8.0\PharmaPro.DS.genruntimeconfig.cache
+D:\GraduationProject\PharmaPro\PharmaPro.DS\obj\Debug\net8.0\ref\PharmaPro.DS.dll
+D:\GraduationProject\PharmaPro\PharmaPro.DS\bin\Debug\net8.0\PharmaPro.Domain.dll
+D:\GraduationProject\PharmaPro\PharmaPro.DS\bin\Debug\net8.0\PharmaPro.Domain.pdb
+D:\GraduationProject\PharmaPro\PharmaPro.DS\obj\Debug\net8.0\PharmaPr.5A7EB1BE.Up2Date

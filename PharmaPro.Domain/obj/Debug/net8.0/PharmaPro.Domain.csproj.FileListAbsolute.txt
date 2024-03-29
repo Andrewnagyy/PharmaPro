@@ -1,0 +1,14 @@
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\bin\Debug\net8.0\PharmaPro.Domain.deps.json
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\bin\Debug\net8.0\PharmaPro.Domain.runtimeconfig.json
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\bin\Debug\net8.0\PharmaPro.Domain.dll
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\bin\Debug\net8.0\PharmaPro.Domain.pdb
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.csproj.AssemblyReference.cache
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.AssemblyInfoInputs.cache
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.AssemblyInfo.cs
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.csproj.CoreCompileInputs.cache
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.dll
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\refint\PharmaPro.Domain.dll
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.pdb
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.genruntimeconfig.cache
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\ref\PharmaPro.Domain.dll
