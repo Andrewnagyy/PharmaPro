@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PharmaPro.Core.Features.CategorysFT.Query.GetCategoryByID
 {
-    public class GetCategoryByIdQuery : IRequest<APIResponse<GetCategoryByIdQueryResponse>>
+    public class GetproductByIdQuery : IRequest<APIResponse<GetCategoryByIdQueryResponse>>
     {
         public Guid CategoryId { get; set; }
     }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PharmaPro.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+599cb9ceec2e58ce3a57519091e564b18c637135")]
 [assembly: System.Reflection.AssemblyProductAttribute("PharmaPro.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PharmaPro.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -45,7 +45,7 @@ namespace PharmaPure.Controllers
         }
 
         [HttpGet("GetCategoryByID")]
-        public async Task<ActionResult<GetCategoryByIdQuery>> CategoryById([FromQuery] GetCategoryByIdQuery query)
+        public async Task<ActionResult<GetproductByIdQuery>> CategoryById([FromQuery] GetproductByIdQuery query)
         {
             var result = await _mediatR.Send(query);
             return GetApiResponse(result);

@@ -23,7 +23,7 @@ namespace PharmaPro.Core.Features.CategorysFT.Command.DeleteCategory
 
         public async Task<APIResponse<DeleteCategoryCommandResponse>> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
         {
-            var category = await _dbContext.categories.FindAsync(request.CategoryId);
+            var category = await _dbContext.categories.FindAsync(request.Id);
             if (category == null)
             {
                 return new APIResponse<DeleteCategoryCommandResponse>

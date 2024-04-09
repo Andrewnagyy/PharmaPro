@@ -10,6 +10,6 @@ namespace PharmaPro.Core.Features.CategorysFT.Command.DeleteCategory
 { 
       public class DeleteCategoryCommand : IRequest<APIResponse<DeleteCategoryCommandResponse>>
       {
-            public Guid CategoryId { get; set; }
+            public Guid Id { get; set; }
       }
 }

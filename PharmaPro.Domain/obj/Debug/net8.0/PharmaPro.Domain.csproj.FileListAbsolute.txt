@@ -7,6 +7,7 @@ D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domai
 D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.AssemblyInfoInputs.cache
 D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.AssemblyInfo.cs
 D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.csproj.CoreCompileInputs.cache
+D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.sourcelink.json
 D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.dll
 D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\refint\PharmaPro.Domain.dll
 D:\GraduationProject\PharmaPro\PharmaPro.Domain\obj\Debug\net8.0\PharmaPro.Domain.pdb

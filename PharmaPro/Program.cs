@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using PharmaPro.Core.Contract.Identity;
 using PharmaPro.DS;
 using PharmaPro.Repositories.AuthorizationRepo;
 using PharmaPro.ServiceRegistration;
@@ -11,10 +12,9 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
-String connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? String.Empty;
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+String depolyConnectionString = builder.Configuration.GetConnectionString("SomeeHosting") ?? String.Empty;
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(depolyConnectionString));
 
 builder.Services.AddScoped<IAuthorizationRepository, AuthorizationRepository>();
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
@@ -53,6 +53,7 @@ builder.Services.AddAuthentication(options =>
 SwaggerServiceRegistration.AddApplicationServices(builder.Services);
 ConfigureService.AddApplicationServices(builder.Services);
 CorsServiceRegistration.AddApplicationServices(builder.Services);
+builder.Services.AddScoped<IUserToken, UserToken>();
 
 
 var app = builder.Build();

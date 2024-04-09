@@ -1,11 +1,21 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Hosting;
+using NuGet.Protocol.Plugins;
 using PharmaPro.Core.Contract.Api;
 using PharmaPro.Core.Features.CategorysFT.Command.AddCategory;
 using PharmaPro.Core.Features.CategorysFT.Command.DeleteCategory;
 using PharmaPro.Core.Features.CategorysFT.Command.EditCategory;
 using PharmaPro.Core.Features.CategorysFT.Query.GetCategoryByID;
 using PharmaPro.Core.Features.CategorysFT.Query.GetCategoryList;
+using PharmaPro.Core.Features.ProductFT.Command.AddProduct;
+using PharmaPro.Core.Features.ProductFT.Command.DeleteProduct;
+using PharmaPro.Core.Features.ProductFT.Command.EditProduct;
+using PharmaPro.Core.Features.ProductFT.Query.GetProductById;
+using PharmaPro.Core.Features.ProductFT.Query.GetProductList;
+using PharmaPro.Core.Features.Storageft.Command.UploadImage;
+using PharmaPro.Core.Features.Storageft.Query;
+using PharmaPro.Core.Features.UserFt.Command.AddInfo;
+using PharmaPro.Core.Features.UserFt.Query.GetUserList;
 using System.Reflection;
 
 namespace PharmaPRO.ServiceRegistration
@@ -16,13 +26,32 @@ namespace PharmaPRO.ServiceRegistration
         {
  
             services.AddMediatR(_ => _.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-            
+
+            //User 
+            services.AddTransient(typeof(IRequestHandler<AddUserInfoCommand, APIResponse<AddUserInfoCommandResponse>>), typeof(AddUserInfoCommandHandler));
+            services.AddTransient(typeof(IRequestHandler<GetUserListQuery, APIResponse<GetUserListResponse>>), typeof(GetUserListQueryHandler));
+
+
+
             //Category
             services.AddTransient(typeof(IRequestHandler<AddCategoryCommand, APIResponse<AddCategoryCommandResponse>>), typeof(AddCategoryCommandHandler));
             services.AddTransient(typeof(IRequestHandler<DeleteCategoryCommand, APIResponse<DeleteCategoryCommandResponse>>), typeof(DeleteCategoryCommandHandler));
             services.AddTransient(typeof(IRequestHandler<EditCategoryCommand, APIResponse<EditCategoryCommandResponse>>), typeof(EditCategoryCommandHandler));
-            services.AddTransient(typeof(IRequestHandler<GetCategoryByIdQuery, APIResponse<GetCategoryByIdQueryResponse>>), typeof(GetCategoryByIdQueryHandler));
+            services.AddTransient(typeof(IRequestHandler<GetproductByIdQuery, APIResponse<GetCategoryByIdQueryResponse>>), typeof(GetCategoryByIdQueryHandler));
             services.AddTransient(typeof(IRequestHandler<GetCategoryListQuery, APIResponse<GetCategoryListQueryResponse>>), typeof(GetCategoryListQueryHandler));
+
+            //Product
+            services.AddTransient(typeof(IRequestHandler<AddProductCommand, APIResponse<AddProductCommandResponse>>), typeof(AddProductCommandHandler));
+            services.AddTransient(typeof(IRequestHandler<EditProductCommand, APIResponse<EditProductCommandResponse>>), typeof(EditProductCommandHandler));
+            services.AddTransient(typeof(IRequestHandler<DeleteProductCommand, APIResponse<DeleteProductCommandResponse>>), typeof(DeleteProductCommandHandler));
+            services.AddTransient(typeof(IRequestHandler<GetProductByIdQuery, APIResponse<GetProductByIdQueryResponse>>), typeof(GetProductByIdQueryHandler));
+            services.AddTransient(typeof(IRequestHandler<GetProductListQuery, APIResponse<GetProductListQueryResponse>>), typeof(GetProductListQueryHandler));
+
+            //Storage
+            services.AddTransient(typeof(IRequestHandler<UploadImageCommand, APIResponse<UploadImageCommandResponse>>), typeof(UploadImageCommandHandler));
+            services.AddTransient(typeof(IRequestHandler<GetImageQuery, GetImageQueryResponse>), typeof(GetImageQueryHandler));
+
+
 
             return services;
         }

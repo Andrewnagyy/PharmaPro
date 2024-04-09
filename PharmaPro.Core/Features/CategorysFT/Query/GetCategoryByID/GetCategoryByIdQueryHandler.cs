@@ -13,7 +13,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace PharmaPro.Core.Features.CategorysFT.Query.GetCategoryByID
 {
-    public class GetCategoryByIdQueryHandler : IRequestHandler<GetCategoryByIdQuery, APIResponse<GetCategoryByIdQueryResponse>>
+    public class GetCategoryByIdQueryHandler : IRequestHandler<GetproductByIdQuery, APIResponse<GetCategoryByIdQueryResponse>>
     {
         private readonly AppDbContext _dbContext;
         public GetCategoryByIdQueryHandler(AppDbContext appDbContext)
@@ -21,7 +21,7 @@ namespace PharmaPro.Core.Features.CategorysFT.Query.GetCategoryByID
             _dbContext = appDbContext;
 
         }
-        public async Task<APIResponse<GetCategoryByIdQueryResponse>> Handle(GetCategoryByIdQuery query, CancellationToken cancellationToken)
+        public async Task<APIResponse<GetCategoryByIdQueryResponse>> Handle(GetproductByIdQuery query, CancellationToken cancellationToken)
         {
             bool categoryExists = await _dbContext.categories.AnyAsync(c => c.Id == query.CategoryId, cancellationToken);
             if (!categoryExists)
