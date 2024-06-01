@@ -3,13 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using PharmaPro.Core.Contract.Api;
 using PharmaPro.Domain.Products;
 using PharmaPro.DS;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace PharmaPro.Core.Features.ProductFT.Command.AddProduct
 {
@@ -47,24 +41,16 @@ namespace PharmaPro.Core.Features.ProductFT.Command.AddProduct
             {
                 Name = request.Name,
                 Description = request.Description,
-                Photo = new List<ProductPhoto>(),
+                Photo = request.Photo,
                 Amount = request.Amount,
                 BarCode = request.BarCode,
                 Active = request.Active,
                 SoldOut = request.SoldOut,
+                ExpirationDate = request.ExpirationDate,
                 Price = request.Price,
                 CategoryId = request.CategoryId,
+
             };
-
-            foreach (var photoId in request.Photos)
-            {
-                var photo = new ProductPhoto
-                {
-                    PhotoId = photoId
-                };
-
-                product.Photo.Add(photo);
-            }
 
             _dbContext.products.Add(product);
             await _dbContext.SaveChangesAsync(cancellationToken);
@@ -77,11 +63,12 @@ namespace PharmaPro.Core.Features.ProductFT.Command.AddProduct
                     Id = product.Id,
                     Name = product.Name,
                     Description = product.Description,
-                    Photos = product.Photo.Select(p => p.PhotoId).ToList(),
+                    Photos = product.Photo,
                     Amount = product.Amount,
                     BarCode = product.BarCode,
                     Active = product.Active,
                     SoldOut = product.SoldOut,
+                    ExpirationDate = product.ExpirationDate,
                     Price = product.Price,
                     CategoryId = product.CategoryId,
                     Message = "Product added Successfully"

@@ -234,6 +234,53 @@ namespace PharmaPro.DS.Migrations
                     b.ToTable("categories");
                 });
 
+            modelBuilder.Entity("PharmaPro.Domain.Orders.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("OrderIsDone")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("orders");
+                });
+
+            modelBuilder.Entity("PharmaPro.Domain.Orders.OrderProducts", b =>
+                {
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("orderProducts");
+                });
+
             modelBuilder.Entity("PharmaPro.Domain.Products.Product", b =>
                 {
                     b.Property<Guid>("Id")
@@ -257,12 +304,28 @@ namespace PharmaPro.DS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Discount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ExpirationDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Offer")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("OldPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Photo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18, 2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<bool>("SoldOut")
                         .HasColumnType("bit");
@@ -272,26 +335,6 @@ namespace PharmaPro.DS.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("products");
-                });
-
-            modelBuilder.Entity("PharmaPro.Domain.Products.ProductPhoto", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("PhotoId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductPhotos");
                 });
 
             modelBuilder.Entity("PharmaPro.Domain.Storage.ImageStorage", b =>
@@ -309,44 +352,19 @@ namespace PharmaPro.DS.Migrations
                     b.ToTable("ImagesStorage");
                 });
 
-            modelBuilder.Entity("PharmaPro.Domain.Users.ChronicDiseases", b =>
+            modelBuilder.Entity("PharmaPro.Domain.UserProducts.UserProduct", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ChronicDisease")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ChronicDiseases");
-                });
-
-            modelBuilder.Entity("PharmaPro.Domain.Users.PhoneNumbers", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("UserId", "ProductId");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.HasIndex("ProductId");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("PhoneNumbers");
+                    b.ToTable("userProducts");
                 });
 
             modelBuilder.Entity("PharmaPro.Domain.Users.User", b =>
@@ -359,15 +377,23 @@ namespace PharmaPro.DS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ChronicDisease")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("Gmail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -431,6 +457,25 @@ namespace PharmaPro.DS.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PharmaPro.Domain.Orders.OrderProducts", b =>
+                {
+                    b.HasOne("PharmaPro.Domain.Orders.Order", "Order")
+                        .WithMany("OrderProducts")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PharmaPro.Domain.Products.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("PharmaPro.Domain.Products.Product", b =>
                 {
                     b.HasOne("PharmaPro.Domain.Categories.Category", "Category")
@@ -442,35 +487,21 @@ namespace PharmaPro.DS.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("PharmaPro.Domain.Products.ProductPhoto", b =>
+            modelBuilder.Entity("PharmaPro.Domain.UserProducts.UserProduct", b =>
                 {
                     b.HasOne("PharmaPro.Domain.Products.Product", "Product")
-                        .WithMany("Photo")
+                        .WithMany("UserProducts")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("PharmaPro.Domain.Users.User", "User")
+                        .WithMany("UserProducts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("PharmaPro.Domain.Users.ChronicDiseases", b =>
-                {
-                    b.HasOne("PharmaPro.Domain.Users.User", "User")
-                        .WithMany("ChronicDisease")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("PharmaPro.Domain.Users.PhoneNumbers", b =>
-                {
-                    b.HasOne("PharmaPro.Domain.Users.User", "User")
-                        .WithMany("PhoneNumber")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -480,16 +511,19 @@ namespace PharmaPro.DS.Migrations
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("PharmaPro.Domain.Orders.Order", b =>
+                {
+                    b.Navigation("OrderProducts");
+                });
+
             modelBuilder.Entity("PharmaPro.Domain.Products.Product", b =>
                 {
-                    b.Navigation("Photo");
+                    b.Navigation("UserProducts");
                 });
 
             modelBuilder.Entity("PharmaPro.Domain.Users.User", b =>
                 {
-                    b.Navigation("ChronicDisease");
-
-                    b.Navigation("PhoneNumber");
+                    b.Navigation("UserProducts");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,15 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using PharmaPro.Core.Contract.Api;
-using PharmaPro.Domain.Categories;
 using PharmaPro.DS;
-using PharmaPro.DS.Migrations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace PharmaPro.Core.Features.CategorysFT.Query.GetCategoryByID
 {

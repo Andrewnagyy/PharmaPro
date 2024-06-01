@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PharmaPro.Domain.UserProducts;
 
 namespace PharmaPro.Domain.Users
 {
@@ -10,11 +6,14 @@ namespace PharmaPro.Domain.Users
     {
         public Guid UserID { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
+        public string Gmail { get; set; }
         public string City { get; set; }
         public string Street { get; set; }
         public string Age { get; set; }
-        public ICollection<PhoneNumbers> PhoneNumber { get; set; }
-        public ICollection<ChronicDiseases> ChronicDisease { get; set; }
+        public string PhoneNumber { get; set; }
+        public string ChronicDisease { get; set; }
+
+        public ICollection<UserProduct> UserProducts { get; set; }
+
     }
 }

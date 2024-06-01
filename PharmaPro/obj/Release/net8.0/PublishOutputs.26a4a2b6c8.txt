@@ -9,7 +9,11 @@ D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\AutoMappe
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Azure.Core.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Azure.Identity.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Bogus.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\BouncyCastle.Cryptography.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\FluentEmail.Core.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\FluentEmail.Smtp.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Humanizer.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\MailKit.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\MediatR.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\MediatR.Contracts.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
@@ -62,6 +66,7 @@ D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Microsoft
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\MimeKit.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Mono.TextTemplating.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Newtonsoft.Json.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\NuGet.Common.dll
@@ -73,10 +78,12 @@ D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\NuGet.Pac
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\NuGet.ProjectModel.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\NuGet.Protocol.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\NuGet.Versioning.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\SendGrid.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\ServiceStack.Interfaces.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\SQLitePCLRaw.batteries_v2.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\SQLitePCLRaw.core.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\SQLitePCLRaw.provider.e_sqlite3.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\StarkbankEcdsa.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -269,6 +276,6 @@ D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\PharmaPro
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\PharmaPro.Domain.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\PharmaPro.DS.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\PharmaPro.Core.pdb
-D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\PharmaPro.DS.pdb
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\PharmaPro.Domain.pdb
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\PharmaPro.DS.pdb
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\PubTmp\Out\PharmaPro.deps.json

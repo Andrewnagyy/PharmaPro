@@ -1,25 +1,19 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using PharmaPro.Core.Contract.Api;
 using PharmaPro.DS;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PharmaPro.Core.Features.CategorysFT.Query.GetCategoryList
 {
-    public record CategoryDto(Guid Id,string? Name);
+    public record CategoryDto(Guid Id, string? Name);
     public class GetCategoryListQueryHandler : IRequestHandler<GetCategoryListQuery, APIResponse<GetCategoryListQueryResponse>>
     {
         private readonly AppDbContext _dbContext;
         public GetCategoryListQueryHandler(AppDbContext appDbContext)
         {
-                _dbContext = appDbContext;
-            
+            _dbContext = appDbContext;
+
         }
         public async Task<APIResponse<GetCategoryListQueryResponse>> Handle(GetCategoryListQuery request, CancellationToken cancellationToken)
         {
@@ -52,4 +46,4 @@ namespace PharmaPro.Core.Features.CategorysFT.Query.GetCategoryList
             };
         }
     }
-} 
+}

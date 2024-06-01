@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using PharmaPro.Domain.Identity;
 using System.IdentityModel.Tokens.Jwt;
 
@@ -7,10 +8,12 @@ namespace PharmaPro.Core.Contract.Identity
     public class UserToken : IUserToken
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public UserToken(IHttpContextAccessor httpContextAccessor)
+        public UserToken(IHttpContextAccessor httpContextAccessor, UserManager<IdentityUser> userManager)
         {
             _httpContextAccessor = httpContextAccessor;
+            _userManager = userManager;
         }
 
         public async Task<TokenPayload> GetTokenPayloadFromToken()
@@ -111,6 +114,12 @@ namespace PharmaPro.Core.Contract.Identity
                 Console.WriteLine($"Error while extracting email from token: {ex.Message}");
                 return string.Empty; // Return an empty string in case of any exception
             }
+        }
+
+        public async Task<string> GetUserEmailById(Guid userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            return user?.Email;
         }
 
 

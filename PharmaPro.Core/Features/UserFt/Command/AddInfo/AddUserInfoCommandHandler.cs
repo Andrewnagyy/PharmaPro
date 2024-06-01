@@ -1,73 +1,73 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Identity;
 using PharmaPro.Core.Contract.Api;
-using PharmaPro.Core.Contract.Identity;
 using PharmaPro.Domain.Users;
 using PharmaPro.DS;
-using Microsoft.AspNetCore.Identity;
-using System;
-using System.Linq;
 using System.Net;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace PharmaPro.Core.Features.UserFt.Command.AddInfo
 {
     public class AddUserInfoCommandHandler : IRequestHandler<AddUserInfoCommand, APIResponse<AddUserInfoCommandResponse>>
     {
         private readonly AppDbContext _dbContext;
-        private readonly IUserToken _userToken;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public AddUserInfoCommandHandler(AppDbContext appDbContext, IUserToken userToken, UserManager<IdentityUser> userManager)
+        public AddUserInfoCommandHandler(AppDbContext dbContext, UserManager<IdentityUser> userManager)
         {
-            _dbContext = appDbContext;
-            _userToken = userToken;
+            _dbContext = dbContext;
             _userManager = userManager;
         }
 
         public async Task<APIResponse<AddUserInfoCommandResponse>> Handle(AddUserInfoCommand request, CancellationToken cancellationToken)
         {
-            Guid userId = await _userToken.GetUserIDFromToken();
-            var user = await _userManager.FindByIdAsync(userId.ToString());
-
-            if (user == null)
+            try
             {
-                // Handle the case where user is not found
+                var user = await _userManager.FindByIdAsync(request.userId.ToString());
+
+                if (user == null)
+                {
+                    return new APIResponse<AddUserInfoCommandResponse>
+                    {
+                        Data = new AddUserInfoCommandResponse(),
+                        HttpStatusCode = HttpStatusCode.NotFound
+                    };
+                }
+
+                string userEmail = user.Email;
+
+                var newUser = new User
+                {
+                    UserID = request.userId,
+                    Name = request.Name,
+                    Gmail = userEmail,
+                    City = request.City,
+                    Street = request.Street,
+                    PhoneNumber = request.PhoneNumber,
+                    Age = request.Age,
+                    ChronicDisease = request.ChronicDisease
+                };
+
+                _dbContext.users.Add(newUser);
+                await _dbContext.SaveChangesAsync(cancellationToken);
+
                 return new APIResponse<AddUserInfoCommandResponse>
                 {
-                    Data = new AddUserInfoCommandResponse(),
-                    HttpStatusCode = HttpStatusCode.NotFound
+                    Data = new AddUserInfoCommandResponse
+                    {
+                        Message = "Profile has been Completed"
+                    },
+                    HttpStatusCode = HttpStatusCode.Created
                 };
             }
-
-            string userEmail = user.Email;
-
-            var phoneNumbers = request.PhoneNumber.Select(p => new PhoneNumbers { PhoneNumber = p }).ToList();
-            var chronicDiseases = request.ChronicDisease.Select(d => new ChronicDiseases { ChronicDisease = d }).ToList();
-
-            var newUser = new User
+            catch (Exception ex)
             {
-                UserID = userId,
-                Email = userEmail,
-                Name = request.Name,
-                City = request.City,
-                Street = request.Street,
-                PhoneNumber = phoneNumbers,
-                Age = request.Age,
-                ChronicDisease = chronicDiseases
-            };
-
-            _dbContext.users.Add(newUser);
-            await _dbContext.SaveChangesAsync(cancellationToken);
-
-            return new APIResponse<AddUserInfoCommandResponse>
-            {
-                Data = new AddUserInfoCommandResponse
+                // Log the exception
+                return new APIResponse<AddUserInfoCommandResponse>
                 {
-                    Message = "Profile has been Completed"
-                },
-                HttpStatusCode = HttpStatusCode.Created
-            };
+                    Data = null,
+                    HttpStatusCode = HttpStatusCode.InternalServerError
+                };
+            }
         }
     }
 }

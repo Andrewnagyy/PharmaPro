@@ -6,5 +6,6 @@
         Guid GetUserIDFromTokenNotAsync();
         Task<TokenPayload> GetTokenPayloadFromToken();
         Task<string> GetUserEmailFromToken();
+        Task<string> GetUserEmailById(Guid userId);
     }
 }

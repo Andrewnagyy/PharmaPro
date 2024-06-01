@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using PharmaPro.Core.Contract.Api;
-using System.ComponentModel.DataAnnotations;
 
 
 namespace PharmaPro.Core.Features.IdentityFt.Register.Command

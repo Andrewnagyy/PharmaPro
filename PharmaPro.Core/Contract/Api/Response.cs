@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
 
 namespace PharmaPro.Core.Contract.Api
 {
@@ -32,6 +27,8 @@ namespace PharmaPro.Core.Contract.Api
                 return StatusCode >= 200 && StatusCode <= 299;
             }
         }
+
+        public string Message { get; set; }
 
         public static APIResponse<T> GetNotFoundApiResponse(List<string>? errors = null)
         {

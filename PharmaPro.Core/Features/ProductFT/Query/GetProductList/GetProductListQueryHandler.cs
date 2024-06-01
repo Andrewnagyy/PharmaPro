@@ -1,18 +1,12 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using PharmaPro.Core.Contract.Api;
-using PharmaPro.Core.Features.CategorysFT.Query.GetCategoryList;
 using PharmaPro.DS;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PharmaPro.Core.Features.ProductFT.Query.GetProductList
 {
-    public record ProductDto(Guid Id, string Name, string Description, string Photo, int Amount, string BarCode, bool Active, bool SoldOut, decimal Price, Guid CategoryID);
+    public record ProductDto(Guid Id, string Name, string Description, string Photo, int Amount, string BarCode, bool Active, bool SoldOut, DateTime ExpirationDate, decimal Price, bool Offer, int Discount, decimal OldPrice, Guid CategoryID);
 
     public class GetProductListQueryHandler : IRequestHandler<GetProductListQuery, APIResponse<GetProductListQueryResponse>>
     {
@@ -25,8 +19,8 @@ namespace PharmaPro.Core.Features.ProductFT.Query.GetProductList
         public async Task<APIResponse<GetProductListQueryResponse>> Handle(GetProductListQuery request, CancellationToken cancellationToken)
         {
             var products = await _dbContext.products
-                .Include(p => p.Photo)
                 .ToListAsync(cancellationToken);
+
 
             if (products == null || !products.Any())
             {
@@ -42,12 +36,16 @@ namespace PharmaPro.Core.Features.ProductFT.Query.GetProductList
                     p.Id,
                     p.Name,
                     p.Description,
-                    p.Photo.FirstOrDefault()?.PhotoId,
+                    $"https://pharmapro.somee.com/api/Storage/GetImageById?id={p.Photo}",
                     p.Amount,
                     p.BarCode,
                     p.Active,
                     p.SoldOut,
+                    p.ExpirationDate,
                     p.Price,
+                    p.Offer,
+                    p.Discount,
+                    p.OldPrice,
                     p.CategoryId
                 )).ToList()
             );

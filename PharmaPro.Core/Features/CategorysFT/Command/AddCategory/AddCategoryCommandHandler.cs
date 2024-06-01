@@ -1,11 +1,9 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using PharmaPro.Core.Contract.Api;
-using PharmaPro.Core.Features.CategorysFT.Command.AddCategory;
 using PharmaPro.Domain.Categories;
 using PharmaPro.DS;
 using System.Net;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace PharmaPro.Core.Features.CategorysFT.Command.AddCategory
 {

@@ -295,3 +295,10 @@ D:\GraduationProject\PharmaPro\PharmaPro\obj\Debug\net8.0\refint\PharmaPro.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Debug\net8.0\PharmaPro.pdb
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Debug\net8.0\PharmaPro.genruntimeconfig.cache
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Debug\net8.0\ref\PharmaPro.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Debug\net8.0\FluentEmail.Core.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Debug\net8.0\FluentEmail.Smtp.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Debug\net8.0\MailKit.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Debug\net8.0\MimeKit.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Debug\net8.0\SendGrid.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Debug\net8.0\StarkbankEcdsa.dll

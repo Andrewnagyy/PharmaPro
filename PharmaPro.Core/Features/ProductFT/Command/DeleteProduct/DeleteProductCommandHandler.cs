@@ -1,16 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol.Plugins;
 using PharmaPro.Core.Contract.Api;
 using PharmaPro.DS;
-using ServiceStack.Web;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace PharmaPro.Core.Features.ProductFT.Command.DeleteProduct
 {

@@ -258,3 +258,11 @@ D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PharmaPro.pd
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PharmaPro.genruntimeconfig.cache
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\ref\PharmaPro.dll
 D:\GraduationProject\PharmaPro\PharmaPro\bin\Release\net8.0\win-x86\Bogus.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Release\net8.0\win-x86\AutoMapper.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Release\net8.0\win-x86\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Release\net8.0\win-x86\Microsoft.Data.Sqlite.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Release\net8.0\win-x86\Microsoft.EntityFrameworkCore.Sqlite.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Release\net8.0\win-x86\SQLitePCLRaw.batteries_v2.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Release\net8.0\win-x86\SQLitePCLRaw.core.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Release\net8.0\win-x86\SQLitePCLRaw.provider.e_sqlite3.dll
+D:\GraduationProject\PharmaPro\PharmaPro\bin\Release\net8.0\win-x86\e_sqlite3.dll

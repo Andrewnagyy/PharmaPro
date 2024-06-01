@@ -1,6 +1,4 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PharmaPro.Controllers;
 using PharmaPro.Core.Features.CategorysFT.Command.AddCategory;
@@ -38,7 +36,7 @@ namespace PharmaPure.Controllers
         }
 
         [HttpDelete("DeleteCategory")]
-        public async Task<ActionResult<DeleteCategoryCommandResponse>> DeleteCategory([FromQuery] DeleteCategoryCommand command)
+        public async Task<ActionResult<DeleteCategoryCommand>> DeleteCategory([FromQuery] DeleteCategoryCommand command)
         {
             var result = await _mediatR.Send(command);
             return GetApiResponse(result);

@@ -1,14 +1,7 @@
 ﻿using MediatR;
 using PharmaPro.Core.Contract.Api;
-using PharmaPro.Core.Features.CategorysFT.Command.AddCategory;
 using PharmaPro.DS;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PharmaPro.Core.Features.CategorysFT.Command.DeleteCategory
 {

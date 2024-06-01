@@ -4,6 +4,8 @@ D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\a
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\PharmaPro.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\PharmaPro.runtimeconfig.json
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\PharmaPro.pdb
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\AutoMapper.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Azure.Core.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Azure.Identity.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Bogus.dll
@@ -29,11 +31,13 @@ D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\M
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.CodeAnalysis.Scripting.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.CodeAnalysis.Workspaces.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.Data.SqlClient.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.Data.Sqlite.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.DiaSymReader.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.DotNet.Scaffolding.Shared.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.EntityFrameworkCore.Sqlite.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.EntityFrameworkCore.SqlServer.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.Extensions.DependencyModel.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.Extensions.Identity.Core.dll
@@ -70,6 +74,9 @@ D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\N
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\NuGet.Protocol.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\NuGet.Versioning.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\ServiceStack.Interfaces.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\SQLitePCLRaw.batteries_v2.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\SQLitePCLRaw.core.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\SQLitePCLRaw.provider.e_sqlite3.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -228,6 +235,7 @@ D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\t
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.Data.SqlClient.SNI.dll
+D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\e_sqlite3.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\PharmaPro.Core.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\PharmaPro.Domain.dll
 D:\GraduationProject\PharmaPro\PharmaPro\obj\Release\net8.0\win-x86\PubTmp\Out\PharmaPro.DS.dll

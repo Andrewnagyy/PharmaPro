@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using PharmaPro.DS;
 
 namespace PharmaPro.Core.Features.Storageft.Query

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using PharmaPro.Core.Contract.Api;
 using PharmaPro.Core.Features.IdentityFt.Login.Command;
 using PharmaPro.Core.Features.IdentityFt.Register.Command;
+using static PharmaPro.Repositories.AuthorizationRepo.AuthorizationRepository;
 
 namespace PharmaPro.Repositories.AuthorizationRepo
 {
@@ -12,5 +14,9 @@ namespace PharmaPro.Repositories.AuthorizationRepo
         Task<APIResponse<RegisterCommandResponse>> RegisterUserAsync(RegisterCommand command);
         Task<APIResponse<LoginCommandResponse>> LoginAsync(LoginCommand command);
         IQueryable<IdentityUser> GetUserRepo();
+        Task<APIResponse<PasswordResetResponse>> RequestPasswordReset(string email);
+        Task<APIResponse<IActionResult>> ResetPassword(string email, string token, string newPassword, string confirmPassword);
+
+
     }
 }

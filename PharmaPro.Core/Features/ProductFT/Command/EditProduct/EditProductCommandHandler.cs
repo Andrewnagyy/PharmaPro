@@ -1,15 +1,8 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using PharmaPro.Core.Contract.Api;
-using PharmaPro.Domain.Products;
 using PharmaPro.DS;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace PharmaPro.Core.Features.ProductFT.Command.EditProduct
 {
@@ -58,45 +51,37 @@ namespace PharmaPro.Core.Features.ProductFT.Command.EditProduct
 
             product.Name = request.Name;
             product.Description = request.Description;
+            product.Photo = request.Photo;
             product.Amount = request.Amount;
             product.BarCode = request.BarCode;
             product.Active = request.Active;
             product.SoldOut = request.SoldOut;
+            product.ExpirationDate = request.ExpirationDate;
             product.Price = request.Price;
             product.CategoryId = request.CategoryId;
 
-            product.Photo.Clear();
 
-            foreach (var photoId in request.Photo)
-            {
-                var photo = new ProductPhoto
-                {
-                    PhotoId = photoId,
-                    ProductId = product.Id
-                };
-
-                product.Photo.Add(photo);
-            }
 
             await _dbContext.SaveChangesAsync(cancellationToken);
-                return new APIResponse<EditProductCommandResponse>
+            return new APIResponse<EditProductCommandResponse>
+            {
+                Data = new EditProductCommandResponse
                 {
-                    Data = new EditProductCommandResponse
-                    {
-                        Id = product.Id,
-                        Name = product.Name,
-                        Description = product.Description,
-                        Photo = product.Photo.Select(p => p.PhotoId).ToList(),
-                        Amount = product.Amount,
-                        BarCode = product.BarCode,
-                        IsActive = product.Active,
-                        IsSoldOut = product.SoldOut,
-                        Price = product.Price,
-                        CategoryId = product.CategoryId,
-                        Message = "Product updated SuccessFully"
-                    },
-                    HttpStatusCode = HttpStatusCode.OK
-                };
+                    Id = product.Id,
+                    Name = product.Name,
+                    Description = product.Description,
+                    Photo = product.Photo,
+                    Amount = product.Amount,
+                    BarCode = product.BarCode,
+                    IsActive = product.Active,
+                    IsSoldOut = product.SoldOut,
+                    ExpirationDate = product.ExpirationDate,
+                    Price = product.Price,
+                    CategoryId = product.CategoryId,
+                    Message = "Product updated SuccessFully"
+                },
+                HttpStatusCode = HttpStatusCode.OK
+            };
         }
     }
 }

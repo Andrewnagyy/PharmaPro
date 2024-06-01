@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using PharmaPro.Core.Contract.Api;
-using PharmaPro.Core.Features.Storageft.Command.UploadImage;
 using PharmaPro.Core.Helpers;
 using PharmaPro.Domain.Storage;
 using PharmaPro.DS;
