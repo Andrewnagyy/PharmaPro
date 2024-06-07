@@ -29,34 +29,6 @@ namespace PharmaPro.Controllers
             return GetApiResponse(result);
         }
 
-        /* [HttpPost("UploadManyImages")]
-         [Authorize]
-         public async Task<ActionResult<List<Guid>>> UploadManyImages([FromForm] List<IFormFile> files)
-         {
-             var uploadedFileIds = new List<Guid>();
-
-             foreach (var file in files)
-             {
-                 if (file.Length > 0)
-                 {
-                     var fileId = Guid.NewGuid();
-                     var fileName = fileId.ToString() + Path.GetExtension(file.FileName);
-                     var filePath = Path.Combine("Uploads", fileName);
-                     using (var stream = new FileStream(filePath, FileMode.Create))
-                     {
-                         await file.CopyToAsync(stream);
-                     }
-                     uploadedFileIds.Add(fileId);
-
-                     _dbContext.ImagesStorage.Add(new Domain.Storage.ImageStorage { Id = fileId, ImageReference = fileName });
-                     await _dbContext.SaveChangesAsync();
-                 }
-             }
-
-             return uploadedFileIds;
-         }
-        */
-
         [HttpGet("GetImageById")]
         public async Task<ActionResult<GetImageQueryResponse>> GetImage(Guid id)
         {

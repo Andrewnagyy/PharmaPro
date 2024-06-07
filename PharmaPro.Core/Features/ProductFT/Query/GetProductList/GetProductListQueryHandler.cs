@@ -2,11 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using PharmaPro.Core.Contract.Api;
 using PharmaPro.DS;
+using System.Linq;
 using System.Net;
 
 namespace PharmaPro.Core.Features.ProductFT.Query.GetProductList
 {
-    public record ProductDto(Guid Id, string Name, string Description, string Photo, int Amount, string BarCode, bool Active, bool SoldOut, DateTime ExpirationDate, decimal Price, bool Offer, int Discount, decimal OldPrice, Guid CategoryID);
+    public record ProductDto(Guid Id, string Name, string Description, string Photo, int Amount, string BarCode, bool Active, bool SoldOut, DateTime ExpirationDate, decimal Price, bool Offer, int Discount, decimal OldPrice, Guid CategoryID, string categoryName);
 
     public class GetProductListQueryHandler : IRequestHandler<GetProductListQuery, APIResponse<GetProductListQueryResponse>>
     {
@@ -19,20 +20,23 @@ namespace PharmaPro.Core.Features.ProductFT.Query.GetProductList
         public async Task<APIResponse<GetProductListQueryResponse>> Handle(GetProductListQuery request, CancellationToken cancellationToken)
         {
             var products = await _dbContext.products
+                .Include(p => p.Category)
+                .Where(p => p.Active)
                 .ToListAsync(cancellationToken);
-
 
             if (products == null || !products.Any())
             {
                 return new APIResponse<GetProductListQueryResponse>
                 {
-                    Errors = new List<string> { "No Products found!" },
+                    Errors = new List<string> { "No active products found!" },
                     HttpStatusCode = HttpStatusCode.NotFound
                 };
             }
 
-            var response = new GetProductListQueryResponse(
-                products.Select(p => new ProductDto(
+            var productsDto = await _dbContext.products
+                .Include(p => p.Category)
+                .Where(p => p.Active)
+                .Select(p => new ProductDto(
                     p.Id,
                     p.Name,
                     p.Description,
@@ -46,9 +50,12 @@ namespace PharmaPro.Core.Features.ProductFT.Query.GetProductList
                     p.Offer,
                     p.Discount,
                     p.OldPrice,
-                    p.CategoryId
-                )).ToList()
-            );
+                    p.CategoryId,
+                    p.Category.Name
+                ))
+                .ToListAsync(cancellationToken);
+
+            var response = new GetProductListQueryResponse(productsDto);
 
             return new APIResponse<GetProductListQueryResponse>
             {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PharmaPro.Domain.Categories;
+using PharmaPro.Domain.Contacts;
 using PharmaPro.Domain.Orders;
 using PharmaPro.Domain.Products;
 using PharmaPro.Domain.Storage;
@@ -22,6 +23,7 @@ namespace PharmaPro.DS
         public DbSet<Order> orders { get; set; }
         public DbSet<OrderProducts> orderProducts { get; set; }
         public DbSet<UserProduct> userProducts { get; set; }
+        public DbSet<ContactUs> ContactUs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

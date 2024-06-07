@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using PharmaPro.Core.Contract.Api;
 using System.ComponentModel.DataAnnotations;
 
@@ -11,7 +12,6 @@ namespace PharmaPro.Core.Features.ProductFT.Command.AddProduct
 
         [Required, MinLength(1), MaxLength(150)]
         public string Description { get; set; }
-        public string Photo { get; set; }
         public int Amount { get; set; }
 
         [MinLength(6), MaxLength(14)]
@@ -23,5 +23,6 @@ namespace PharmaPro.Core.Features.ProductFT.Command.AddProduct
         public decimal Price { get; set; }
 
         public Guid CategoryId { get; set; }
+        public IFormFile PhotoFile { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using PharmaPro.Domain.Categories;
 using PharmaPro.Domain.Orders;
 using PharmaPro.Domain.UserProducts;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PharmaPro.Domain.Products
 {
@@ -24,10 +25,12 @@ namespace PharmaPro.Domain.Products
         // Foreign key property
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
+
+        [NotMapped]
+        public string CategoryName { get; set; }
+
         public ICollection<OrderProducts> OrderProducts { get; set; }
-
         public ICollection<UserProduct> UserProducts { get; set; }
-
-
+      
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Org.BouncyCastle.Bcpg;
 using PharmaPro.Core.Contract;
 using PharmaPro.Core.Contract.Api;
 using PharmaPro.Core.Features.IdentityFt.isBlocked.blockUser;
@@ -123,6 +124,7 @@ namespace PharmaPro.Controllers
             }
             var pharmacistInfo = pharmacists.Select(pharmacist => new
             {
+                id = pharmacist.Id,
                 Email = pharmacist.Email,
                 Username = pharmacist.UserName
             }).ToList();
@@ -165,15 +167,40 @@ namespace PharmaPro.Controllers
         }
 
         [HttpPost("requestResetPassword")]
-        public async Task<APIResponse<PasswordResetResponse>> requestResetPassword([FromQuery] string email)
+        public async Task<IActionResult> RequestResetPassword([FromQuery] string email)
         {
-            return await _authService.RequestPasswordReset(email);
+            var response = await _authService.RequestPasswordReset(email);
+            if (response.Errors != null && response.Errors.Count > 0)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
         }
 
+
         [HttpPost("resetPassword")]
-        public async Task<APIResponse<IActionResult>> resetPassword([FromBody] ResetPasswordRequest request)
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest request)
         {
-            return await _authService.ResetPassword(request.Email,request.Token,request.NewPassword,request.ConfirmPassword);
+            var response = await _authService.ResetPassword(request.Email, request.Token, request.NewPassword, request.ConfirmPassword);
+            if (response.Errors != null && response.Errors.Count > 0)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
+
+
+        [HttpDelete("deleteUser")]
+        public async Task<IActionResult> DeleteUser(Guid id)
+        {
+            var result = await _authService.DeleteUserAccountAsync(id);
+
+            if (result.HttpStatusCode == HttpStatusCode.OK)
+            {
+                return Ok(result.Data);
+            }
+
+            return StatusCode((int)result.HttpStatusCode, result.Errors);
         }
     }
 }

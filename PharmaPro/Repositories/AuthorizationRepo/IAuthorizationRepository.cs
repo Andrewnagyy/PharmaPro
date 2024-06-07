@@ -15,8 +15,9 @@ namespace PharmaPro.Repositories.AuthorizationRepo
         Task<APIResponse<LoginCommandResponse>> LoginAsync(LoginCommand command);
         IQueryable<IdentityUser> GetUserRepo();
         Task<APIResponse<PasswordResetResponse>> RequestPasswordReset(string email);
-        Task<APIResponse<IActionResult>> ResetPassword(string email, string token, string newPassword, string confirmPassword);
+        Task<APIResponse<IActionResult>> ResetPassword(string token, string email, string newPassword, string confirmPassword);
 
+        Task<APIResponse<string>> DeleteUserAccountAsync(Guid id);
 
     }
 }

@@ -234,6 +234,29 @@ namespace PharmaPro.DS.Migrations
                     b.ToTable("categories");
                 });
 
+            modelBuilder.Entity("PharmaPro.Domain.Contacts.ContactUs", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactUs");
+                });
+
             modelBuilder.Entity("PharmaPro.Domain.Orders.Order", b =>
                 {
                     b.Property<Guid>("Id")
@@ -466,7 +489,7 @@ namespace PharmaPro.DS.Migrations
                         .IsRequired();
 
                     b.HasOne("PharmaPro.Domain.Products.Product", "Product")
-                        .WithMany()
+                        .WithMany("OrderProducts")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -518,6 +541,8 @@ namespace PharmaPro.DS.Migrations
 
             modelBuilder.Entity("PharmaPro.Domain.Products.Product", b =>
                 {
+                    b.Navigation("OrderProducts");
+
                     b.Navigation("UserProducts");
                 });
 

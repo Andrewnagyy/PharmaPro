@@ -33,17 +33,17 @@ namespace PharmaPro.Core.Features.OrderFt.Query.GetOrdersList
                         ProductId = oi.ProductId,
                         Amount = oi.Amount,
                         productName = _dbContext.products
-                    .Where(p => p.Id == oi.ProductId)
-                    .Select(p => p.Name)
-                    .FirstOrDefault(),
+                        .Where(p => p.Id == oi.ProductId)
+                        .Select(p => p.Name)
+                        .FirstOrDefault(),
                         productPrice = _dbContext.products
-                    .Where(p => p.Id == oi.ProductId)
-                    .Select(p => p.Price)
-                    .FirstOrDefault(),
-
+                        .Where(p => p.Id == oi.ProductId)
+                        .Select(p => p.Price)
+                        .FirstOrDefault(),
                     }).ToList()
                 })
-        .ToList();
+                .OrderBy(o => o.orderIsDone)
+                .ToList();
 
             if (orders.Count == 0)
             {

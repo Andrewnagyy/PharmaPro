@@ -5,6 +5,7 @@ using PharmaPro.Core.Features.ProductFT.Command.AddOffer;
 using PharmaPro.Core.Features.ProductFT.Command.AddProduct;
 using PharmaPro.Core.Features.ProductFT.Command.DeleteProduct;
 using PharmaPro.Core.Features.ProductFT.Command.EditProduct;
+using PharmaPro.Core.Features.ProductFT.Query.GetProductByCategory;
 using PharmaPro.Core.Features.ProductFT.Query.GetProductById;
 using PharmaPro.Core.Features.ProductFT.Query.GetProductList;
 
@@ -22,14 +23,14 @@ namespace PharmaPro.Controllers
         }
 
         [HttpPost("AddProduct")]
-        public async Task<ActionResult<AddProductCommand>> AddProduct([FromBody] AddProductCommand command)
+        public async Task<ActionResult<AddProductCommand>> AddProduct([FromForm] AddProductCommand command)
         {
             var result = await _mediatR.Send(command);
             return GetApiResponse(result);
         }
 
         [HttpPut("UpdateProduct")]
-        public async Task<ActionResult<EditProductCommand>> UpdateCategory(EditProductCommand command)
+        public async Task<ActionResult<EditProductCommand>> UpdateProduct([FromForm] EditProductCommand command)
         {
             var result = await _mediatR.Send(command);
             return GetApiResponse(result);
@@ -50,8 +51,15 @@ namespace PharmaPro.Controllers
         }
 
         [HttpGet("GetProductByID")]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult<GetProductByIdQuery>> ProductById([FromQuery] GetProductByIdQuery query)
+        {
+            var result = await _mediatR.Send(query);
+            return GetApiResponse(result);
+        }
+
+        [HttpGet("GetProductByCategoryID")]
+        public async Task<ActionResult<GetProductByCategoryQuery>> GetProductByCategoryID([FromQuery] GetProductByCategoryQuery query)
         {
             var result = await _mediatR.Send(query);
             return GetApiResponse(result);

@@ -350,15 +350,15 @@ namespace PharmaPro.Repositories.AuthorizationRepo
             {
                 Data = new PasswordResetResponse
                 {
+                    Message = "Password reset link sent to your email",
                     Token = token,
-                    Message = "Password reset link sent to your email"
                 },
                 HttpStatusCode = HttpStatusCode.OK
             };
         }
 
 
-        public async Task<APIResponse<IActionResult>> ResetPassword(string email, string token,string newPassword, string confirmPassword)
+        public async Task<APIResponse<IActionResult>> ResetPassword(string token,string email,string newPassword, string confirmPassword)
         {
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
@@ -395,7 +395,51 @@ namespace PharmaPro.Repositories.AuthorizationRepo
                 Errors = new List<string> { "Password reset successfully" },
                 HttpStatusCode = HttpStatusCode.OK
             };
+
+
         }
+        public async Task<APIResponse<string>> DeleteUserAccountAsync(Guid id)
+        {
+            var user = await _userManager.FindByIdAsync(id.ToString());
+
+            if (user == null)
+            {
+                return new APIResponse<string>
+                {
+                    Errors = new List<string> { "User not found" },
+                    HttpStatusCode = HttpStatusCode.NotFound
+                };
+            }
+
+            if (await _userManager.IsInRoleAsync(user, "Admin"))
+            {
+                return new APIResponse<string>
+                {
+                    Errors = new List<string> { "Cannot delete an admin user" },
+                    HttpStatusCode = HttpStatusCode.BadRequest
+                };
+            }
+
+            var result = await _userManager.DeleteAsync(user);
+
+            if (result.Succeeded)
+            {
+                return new APIResponse<string>
+                {
+                    Data = "User account deleted successfully",
+                    HttpStatusCode = HttpStatusCode.OK
+                };
+            }
+            else
+            {
+                return new APIResponse<string>
+                {
+                    Errors = result.Errors.Select(err => err.Description).ToList(),
+                    HttpStatusCode = HttpStatusCode.BadRequest
+                };
+            }
+        }
+
 
         private Expression<Func<IdentityUser, bool>> GetUserExistFilter(string email)
         {
@@ -404,8 +448,8 @@ namespace PharmaPro.Repositories.AuthorizationRepo
         }
         public class PasswordResetResponse
         {
+            public string Message { get; set; }
             public string Token { get; set; }
-            public string Message { get; set; }   
         }
     }
 }

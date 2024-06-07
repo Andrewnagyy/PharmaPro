@@ -37,15 +37,15 @@ namespace PharmaPro.Core.Features.ProductFT.Query.GetProductById
             else
             {
                 var product = await _dbContext.products.FindAsync(query.Id);
-
+                /*
                 var userProduct = new UserProduct
                 {
                     ProductId = query.Id,
                     UserId = userId
                 };
-
-                _dbContext.userProducts.Add(userProduct);
-                await _dbContext.SaveChangesAsync(cancellationToken);
+                */
+             //   _dbContext.userProducts.Add(userProduct);
+               // await _dbContext.SaveChangesAsync(cancellationToken);
 
                 var photoUrl = $"https://pharmapro.somee.com/api/Storage/GetImageById?id={product.Photo}";
 
